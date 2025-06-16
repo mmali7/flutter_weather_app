@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../models/forecast_model.dart'; // For DailyForecastSummary
-import 'forecast_item_widget.dart'; // We'll create this next
+import '../models/forecast_model.dart';
+import 'forecast_item_widget.dart';
 
 class DailyForecastWidget extends StatelessWidget {
   final List<DailyForecastSummary> dailySummaries;
@@ -13,14 +13,14 @@ class DailyForecastWidget extends StatelessWidget {
       return const SizedBox.shrink();
     }
 
-    return ListView.builder(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      itemCount: dailySummaries.length,
-      itemBuilder: (context, index) {
-        final summary = dailySummaries[index];
-        return ForecastItemWidget(summary: summary);
-      },
+    return Column(
+      children: [
+        for (int i = 0; i < dailySummaries.length; i++)
+          ForecastItemWidget(
+            summary: dailySummaries[i],
+            index: i,
+          ),
+      ],
     );
   }
 }
