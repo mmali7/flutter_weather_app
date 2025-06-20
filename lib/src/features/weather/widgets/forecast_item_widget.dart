@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import '../models/forecast_model.dart';
 import '../../../core/api/api_constants.dart';
@@ -77,6 +78,11 @@ class _ForecastItemWidgetState extends State<ForecastItemWidget>
     } else {
       return DateFormat.EEEE(l10n.localeName).format(date);
     }
+  }
+
+  String? _toBeginningOfSentenceCase(String? input) {
+    if (input == null || input.isEmpty) return input;
+    return input[0].toUpperCase() + input.substring(1).toLowerCase();
   }
 
   @override
@@ -175,7 +181,7 @@ class _ForecastItemWidgetState extends State<ForecastItemWidget>
                     Expanded(
                       flex: 4,
                       child: Text(
-                        toBeginningOfSentenceCase(widget.summary.description) ??
+                        _toBeginningOfSentenceCase(widget.summary.description) ??
                             l10n.unknown,
                         style: textTheme.bodyMedium?.copyWith(
                           color: colorScheme.onSurface.withOpacity(0.8),

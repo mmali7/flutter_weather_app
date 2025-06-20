@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import '../models/weather_model.dart';
 import '../../../core/api/api_constants.dart';
@@ -187,7 +188,7 @@ class _CurrentWeatherWidgetState extends State<CurrentWeatherWidget>
               ),
               const SizedBox(height: 8),
               Text(
-                toBeginningOfSentenceCase(widget.weather.description) ?? l10n.unknown,
+                _toBeginningOfSentenceCase(widget.weather.description) ?? l10n.unknown,
                 style: textTheme.titleMedium?.copyWith(
                   color: colorScheme.onSurface.withOpacity(0.8),
                 ),
@@ -306,6 +307,11 @@ class _CurrentWeatherWidgetState extends State<CurrentWeatherWidget>
         ),
       ],
     );
+  }
+
+  String? _toBeginningOfSentenceCase(String? input) {
+    if (input == null || input.isEmpty) return input;
+    return input[0].toUpperCase() + input.substring(1).toLowerCase();
   }
 }
 

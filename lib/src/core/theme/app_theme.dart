@@ -61,6 +61,7 @@ class AppTheme {
       onPrimary: Colors.white,
       error: Color(0xFFE53E3E),
       onError: Colors.white,
+      outline: _dividerLight,
     ),
 
     appBarTheme: AppBarTheme(
@@ -216,11 +217,11 @@ class AppTheme {
       fillColor: _cardLight,
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide(color: _dividerLight),
+        borderSide: const BorderSide(color: _dividerLight),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide(color: _dividerLight),
+        borderSide: const BorderSide(color: _dividerLight),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
@@ -258,6 +259,7 @@ class AppTheme {
       onPrimary: Colors.white,
       error: Color(0xFFFF6B6B),
       onError: Colors.black,
+      outline: _dividerDark,
     ),
 
     appBarTheme: AppBarTheme(
@@ -413,11 +415,11 @@ class AppTheme {
       fillColor: _cardDark,
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide(color: _dividerDark),
+        borderSide: const BorderSide(color: _dividerDark),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide(color: _dividerDark),
+        borderSide: const BorderSide(color: _dividerDark),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),

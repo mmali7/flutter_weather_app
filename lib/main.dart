@@ -3,7 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'src/l10n/app_localizations.dart';
+import 'app_localizations.dart';
 
 import 'src/core/theme/app_theme.dart';
 import 'src/core/theme/theme_provider.dart';
