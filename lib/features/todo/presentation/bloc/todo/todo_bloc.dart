@@ -12,6 +12,7 @@ import '../../../domain/usecases/update_todo.dart';
 
 part 'todo_event.dart';
 part 'todo_state.dart';
+part 'todo_bloc.freezed.dart';
 
 class TodoBloc extends Bloc<TodoEvent, TodoState> {
   final GetTodos getTodos;
@@ -48,7 +49,7 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
       final todos = await getTodos();
       emit(TodoState.loaded(todos: todos, filteredTodos: todos));
     } catch (e, stackTrace) {
-      logger.e('Error loading todos', e, stackTrace);
+      logger.e('Error loading todos', error: e, stackTrace: stackTrace);
       emit(TodoState.error(e.toString()));
     }
   }
@@ -65,7 +66,7 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
         emit(TodoState.loaded(todos: todos, filteredTodos: todos));
       }
     } catch (e, stackTrace) {
-      logger.e('Error adding todo', e, stackTrace);
+      logger.e('Error adding todo', error: e, stackTrace: stackTrace);
       emit(TodoState.error(e.toString()));
     }
   }
@@ -82,7 +83,7 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
         emit(TodoState.loaded(todos: todos, filteredTodos: todos));
       }
     } catch (e, stackTrace) {
-      logger.e('Error updating todo', e, stackTrace);
+      logger.e('Error updating todo', error: e, stackTrace: stackTrace);
       emit(TodoState.error(e.toString()));
     }
   }
@@ -99,7 +100,7 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
         emit(TodoState.loaded(todos: todos, filteredTodos: todos));
       }
     } catch (e, stackTrace) {
-      logger.e('Error deleting todo', e, stackTrace);
+      logger.e('Error deleting todo', error: e, stackTrace: stackTrace);
       emit(TodoState.error(e.toString()));
     }
   }
@@ -116,7 +117,7 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
         emit(TodoState.loaded(todos: todos, filteredTodos: todos));
       }
     } catch (e, stackTrace) {
-      logger.e('Error toggling todo', e, stackTrace);
+      logger.e('Error toggling todo', error: e, stackTrace: stackTrace);
       emit(TodoState.error(e.toString()));
     }
   }

@@ -49,17 +49,17 @@ void main() {
     bloc.close();
   });
 
-  const tTodo = Todo(
+  final tTodo = Todo(
     id: '1',
     title: 'Test Todo',
     description: 'Test Description',
     isCompleted: false,
     priority: TodoPriority.medium,
     category: TodoCategory.personal,
-    createdAt: null,
+    createdAt: DateTime.now(),
   );
 
-  const tTodos = [tTodo];
+  final tTodos = [tTodo];
 
   group('TodoBloc', () {
     test('initial state should be TodoState.initial()', () {
@@ -75,7 +75,7 @@ void main() {
       act: (bloc) => bloc.add(const TodoEvent.loadTodos()),
       expect: () => [
         const TodoState.loading(),
-        const TodoState.loaded(todos: tTodos, filteredTodos: tTodos),
+        TodoState.loaded(todos: tTodos, filteredTodos: tTodos),
       ],
       verify: (_) {
         verify(() => mockGetTodos()).called(1);

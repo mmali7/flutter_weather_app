@@ -15,14 +15,14 @@ void main() {
     usecase = AddTodo(mockRepository);
   });
 
-  const tTodo = Todo(
+  final tTodo = Todo(
     id: '1',
     title: 'Test Todo',
     description: 'Test Description',
     isCompleted: false,
     priority: TodoPriority.medium,
     category: TodoCategory.personal,
-    createdAt: null,
+    createdAt: DateTime.now(),
   );
 
   test('should add todo to repository', () async {
